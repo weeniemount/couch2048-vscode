@@ -1,6 +1,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+const path = require('path');
+const fs = require('fs');
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -22,33 +24,27 @@ function activate(context) {
 		);
 
 		// Set HTML content for the Webview
-		panel.webview.html = getWebviewContent();
+		panel.webview.html = getWebviewContent(context, panel);
 	});
 
 	context.subscriptions.push(disposable);
 }
 
-function getWebviewContent() {
-	return `
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>Sample Tab</title>
-		</head>
-		<body>
-			<h1>Welcome to the Sample Tab!</h1>
-			<p>This is a custom tab created in VS Code.</p>
-			<button onclick="hello()">Click Me!</button>
-			<script>
-				function hello() {
-					alert('Hello from your tab!');
-				}
-			</script>
-		</body>
-		</html>
-	`;
+function getWebviewContent(context, panel) {
+	// Resolve the path to the external HTML file
+	const htmlFilePath = path.join(context.extensionPath, 'src', 'game', 'index.html');
+	let htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
+
+	// Update paths for Webview (e.g., scripts, styles) using the Webview API
+	htmlContent = htmlContent.replace(
+		/<script src="(.+?)"><\/script>/g,
+		(match, src) =>
+			`<script src="${panel.webview.asWebviewUri(
+				vscode.Uri.file(path.join(context.extensionPath, 'src', 'game', src))
+			)}"></script>`
+	);
+
+	return htmlContent;
 }
 
 function deactivate() {}
