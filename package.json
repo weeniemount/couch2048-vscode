@@ -16,7 +16,7 @@
       "title": "Hello World"
     }]
   },
-  "activationEvents": ["onCommand:sampleTab.open"], 
+  "activationEvents": [], 
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
