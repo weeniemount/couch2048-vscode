@@ -12,8 +12,8 @@
   "main": "/src/extension.js",
   "contributes": {
     "commands": [{
-      "command": "sampleTab.open",
-      "title": "Hello World"
+      "command": "couch2048Tab.open",
+      "title": "Couch 2048"
     }]
   },
   "activationEvents": [], 

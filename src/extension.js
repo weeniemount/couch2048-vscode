@@ -10,11 +10,11 @@ const vscode = require('vscode');
  */
 function activate(context) {
 	// Register the command
-	const disposable = vscode.commands.registerCommand('sampleTab.open', () => {
+	const disposable = vscode.commands.registerCommand('couch2048Tab.open', () => {
 		// Create a new Webview Panel
 		const panel = vscode.window.createWebviewPanel(
-			'sampleTab', // Identifier for the Webview
-			'Sample Tab', // Title of the tab
+			'couch2048Tab', // Identifier for the Webview
+			'Couch 2048', // Title of the tab
 			vscode.ViewColumn.One, // Where to display the tab
 			{
 				enableScripts: true // Allow JavaScript execution in the Webview
