@@ -9,14 +9,14 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
-  "main": "./extension.js",
+  "main": "/src/extension.js",
   "contributes": {
     "commands": [{
       "command": "sampleTab.open",
       "title": "Hello World"
     }]
   },
+  "activationEvents": ["onCommand:sampleTab.open"], 
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",

@@ -8,7 +8,7 @@ const vscode = require('vscode');
 /**
  * @param {vscode.ExtensionContext} context
  */
-export function activate(context) {
+function activate(context) {
 	// Register the command
 	const disposable = vscode.commands.registerCommand('sampleTab.open', () => {
 		// Create a new Webview Panel
@@ -51,4 +51,7 @@ function getWebviewContent() {
 	`;
 }
 
-export function deactivate() {}
+function deactivate() {}
+module.exports = {
+    activate
+};
