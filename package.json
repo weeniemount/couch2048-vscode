@@ -2,7 +2,7 @@
   "name": "couch2048-vscode",
   "displayName": "Couch 2048 for VS Code",
   "description": "Couch 2048, for VS Code. Im (not) sorry",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.96.0"
   },
