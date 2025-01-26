@@ -1,4 +1,4 @@
-# Couch 2048 for VS Code
+# Couch 2048
 
 Im (not) sorry
 
