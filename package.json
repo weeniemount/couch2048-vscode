@@ -1,9 +1,10 @@
 {
   "name": "couch2048-vscode",
   "publisher": "weeniemount",
-  "displayName": "Couch 2048 for VS Code",
+  "displayName": "Couch 2048",
   "description": "Couch 2048, for VS Code. Im (not) sorry",
   "version": "1.0.0",
+  "icon": "src/images/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/weeniemount/couch2048-vscode.git"
