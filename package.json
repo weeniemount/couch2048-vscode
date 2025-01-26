@@ -3,6 +3,11 @@
   "displayName": "Couch 2048 for VS Code",
   "description": "Couch 2048, for VS Code. Im (not) sorry",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weeniemount/couch2048-vscode.git"
+  },
+
   "engines": {
     "vscode": "^1.96.0"
   },
