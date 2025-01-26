@@ -31,20 +31,15 @@ function activate(context) {
 }
 
 function getWebviewContent(context, panel) {
-	// Resolve the path to the external HTML file
-	const htmlFilePath = path.join(context.extensionPath, 'src', 'game', 'index.html');
-	let htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
-
-	// Update paths for Webview (e.g., scripts, styles) using the Webview API
-	htmlContent = htmlContent.replace(
-		/<script src="(.+?)"><\/script>/g,
-		(match, src) =>
-			`<script src="${panel.webview.asWebviewUri(
-				vscode.Uri.file(path.join(context.extensionPath, 'src', 'game', src))
-			)}"></script>`
-	);
-
-	return htmlContent;
+    const htmlFilePath = path.join(context.extensionPath, 'src', 'game', 'index.html');
+    let htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
+    
+    // Replace relative paths with vscode-resource URIs
+    htmlContent = htmlContent.replace("couch.css", panel.webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, 'src', 'game', 'couch.css'))));
+	htmlContent = htmlContent.replace("couch.js", panel.webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, 'src', 'game', 'couch.js'))));
+	htmlContent = htmlContent.replace("sound.js", panel.webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, 'src', 'game', 'sound.js'))));
+    
+    return htmlContent;
 }
 
 function deactivate() {}
