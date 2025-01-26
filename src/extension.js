@@ -19,11 +19,12 @@ function activate(context) {
 			'Couch 2048', // Title of the tab
 			vscode.ViewColumn.One, // Where to display the tab
 			{
-				enableScripts: true // Allow JavaScript execution in the Webview
+				enableScripts: true, // Allow JavaScript execution in the Webview
+				retainContextWhenHidden: true
 			}
 		);
-
 		// Set HTML content for the Webview
+		panel.iconPath = vscode.Uri.file(path.join(context.extensionPath, 'src', 'images', 'couch.svg')) // Set the icon
 		panel.webview.html = getWebviewContent(context, panel);
 	});
 
