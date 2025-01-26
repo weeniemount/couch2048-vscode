@@ -12,3 +12,11 @@ The tab icon is taken from [Google Material Icons](https://fonts.google.com/icon
 To start the game, press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open the Command Palette and type in "Couch 2048" and hit enter.
 
 The game doesnt stop even when you are in a different tab, so dont worry about losing your progress. Obviously, closing the tab will stop the game.
+
+# Compile
+
+```
+npm install
+npm install -g vsce
+vsce package
+```
