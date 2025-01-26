@@ -1,5 +1,6 @@
 {
   "name": "couch2048-vscode",
+  "publisher": "weeniemount",
   "displayName": "Couch 2048 for VS Code",
   "description": "Couch 2048, for VS Code. Im (not) sorry",
   "version": "1.0.0",
